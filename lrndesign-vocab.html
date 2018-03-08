@@ -1,0 +1,55 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="vocab-dialog.html">
+
+<!--
+`lrndesign-vocab`
+a web component for visualizing vocabulary terms/definitions
+
+@demo demo/index.html
+-->
+
+<dom-module id="lrndesign-vocab">
+  <template>
+    <style>
+      :host {
+        display: inline-flex;
+      }
+      paper-button {
+        text-transform: none;
+        padding: 0;
+        border: 1px dashed mediumturquoise;
+        position: relative;
+        margin: -3px;
+        top: 1px
+      }
+    </style>
+    <vocab-dialog opened="{{opened}}"></vocab-dialog>
+    <paper-button id="word_btn" noink>[[word]]</paper-button>
+    
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'lrndesign-vocab',
+
+      properties: {
+        word: {
+          type: String,
+          value: '',
+          reflectToAttribute: true,
+        },
+        opened: {
+          type: Boolean,
+          value: false,
+        }
+      },
+      ready: function () {
+        this.$$("#word_btn").addEventListener("click", (e) => {
+          this.opened = !this.opened
+        });
+      }
+    });
+  </script>
+</dom-module>

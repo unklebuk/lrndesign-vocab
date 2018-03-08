@@ -1,0 +1,30 @@
+<link rel="import" href="../lrndesign-dialog/lrndesign-dialog.html">
+<link rel="import" href="../paper-dialog-scrollable/paper-dialog-scrollable.html">
+
+<dom-module id="vocab-dialog">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+        </style>
+        <lrndesign-dialog with-backdrop opened="{{opened}}">
+            <h2>Header</h2>
+            <paper-dialog-scrollable>
+                Lorem ipsum...
+            </paper-dialog-scrollable>
+        </lrndesign-dialog>
+    </template>
+    <script>
+        Polymer({
+            is: 'vocab-dialog',
+            properties: {
+                opened: {
+                    type: Boolean,
+                    default: false,
+                    notify: true
+                }
+            }
+        });
+    </script>
+</dom-module>
